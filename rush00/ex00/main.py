@@ -1,4 +1,4 @@
-from checkmate import checkmate
+from rush00.ex00.checkmate import checkmate
 
 def main():
 

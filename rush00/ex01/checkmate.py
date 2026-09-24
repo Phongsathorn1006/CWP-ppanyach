@@ -23,7 +23,7 @@ def checkmate(board_str):
         return
 
     kr, kc = king
-
+    chess = ('R','P','Q','B')
     straight_dirs = [(-1, 0), (1, 0), (0, -1), (0, 1)]
     diagonal_dirs = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
    
@@ -34,7 +34,7 @@ def checkmate(board_str):
             if current in ('R', 'Q'):
                 print("Success")
                 return
-            elif current != '.':
+            elif current in chess:
                 break  
             r += dr
             c += dc
@@ -46,7 +46,7 @@ def checkmate(board_str):
             if current in ('B', 'Q'):
                 print("Success")
                 return
-            elif current != '.':
+            elif current in chess:
                 break  
             r += dr
             c += dc
@@ -59,11 +59,11 @@ def checkmate(board_str):
                 print("Success")
                 return
 
-    # knight = [(kr + 2 , kc - 1),(kr + 1 , kc - 2),(kr - 1 , kc - 2),(kr - 2, kc - 1),(kr - 2 , kc + 1),(kr - 1 , kc + 2),(kr + 1 , kc + 2),(kr + 2,kc + 1)]
-    # for r,c in knight:
-    #     if 0 <= r < size and 0 <= c < size:
-    #         if board[r][c] == 'N':
-    #             print("Success")
-    #             return
+    knight = [(kr + 2 , kc - 1),(kr + 1 , kc - 2),(kr - 1 , kc - 2),(kr - 2, kc - 1),(kr - 2 , kc + 1),(kr - 1 , kc + 2),(kr + 1 , kc + 2),(kr + 2,kc + 1)]
+    for r,c in knight:
+        if 0 <= r < size and 0 <= c < size:
+            if board[r][c] == 'N':
+                print("Success")
+                return
 
     print("Fail")
