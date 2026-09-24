@@ -10,16 +10,16 @@ def checkmate(board_str):
         
     size = len(board)
     king = None
+    king_count = 0
     for r in range(size):
         for c in range(size):
             if board[r][c] == 'K':
+                king_count += 1
                 king = (r, c)
                 break
-        if king:
-            break
         
-    if king is None:
-        print("Not found king")
+    if king_count != 1 or king_count == 0:
+        print("Error")
         return
 
     kr, kc = king
