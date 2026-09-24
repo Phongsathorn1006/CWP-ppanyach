@@ -24,15 +24,15 @@ def checkmate(board_str):
     
     diagonal_dirs = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
 
-    # 1. ตรวจสอบแนวตรง (Rook และ Queen)
+   
     for dr, dc in straight_dirs:
         r, c = kr + dr, kc + dc
-        while 0 <= r < size and 0 <= c < size:
-            piece = board[r][c]
-            if piece in ('R', 'Q'):
+        while r >= 0 and r < size and c >= 0 and c < size:
+            current = board[r][c]
+            if current in ('R', 'Q'):
                 print("Success")
                 return
-            elif piece != '.':
+            elif current != '.':
                 break  
             r += dr
             c += dc
@@ -40,18 +40,18 @@ def checkmate(board_str):
     for dr, dc in diagonal_dirs:
         r, c = kr + dr, kc + dc
         while 0 <= r < size and 0 <= c < size:
-            piece = board[r][c]
-            if piece in ('B', 'Q'):
+            current = board[r][c]
+            if current in ('B', 'Q'):
                 print("Success")
                 return
-            elif piece != '.':
+            elif current != '.':
                 break  
             r += dr
             c += dc
 
     
-    pawn_attack_positions = [(kr + 1, kc - 1), (kr + 1, kc + 1)]
-    for r, c in pawn_attack_positions:
+    pawn_positions = [(kr + 1, kc - 1), (kr + 1, kc + 1)]
+    for r, c in pawn_positions:
         if 0 <= r < size and 0 <= c < size:
             if board[r][c] == 'P':
                 print("Success")
