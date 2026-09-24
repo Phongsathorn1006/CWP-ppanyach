@@ -54,7 +54,7 @@ def checkmate(board_str):
     
     pawn = [(kr + 1, kc - 1), (kr + 1, kc + 1)]
     for r, c in pawn:
-        if 0 <= r < size and 0 <= c < size:
+        if r >= 0 and r < size and c >= 0 and c < size:
             if board[r][c] == 'P':
                 print("Success")
                 return
